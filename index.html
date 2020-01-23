@@ -1,8 +1,122 @@
 <html>
   <head>
     <title>Voxel Studio</title>
+    <style>
+      body {
+        display: flex;
+        font-family: courier, serif;
+        align-items: center;
+        vertical-align: middle;
+      }
+      .type-wrap {
+        font-size: 6vw;
+        color :gra
+      }
+
+      [contenteditable]:focus {
+        outline: 0px solid transparent;
+      }
+
+      .typed-cursor {
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+      }
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes shring-animation {
+        0% {
+          background-position: 0 0;
+          opacity: 0;
+          width: 0;
+        }
+        1% {
+          background-position: 0 0;
+          opacity: 1;
+          border-right: 1px solid orange;
+        }
+        50% {
+          background-position: 150px 0;
+          opacity: 1;
+          border-right: 1px solid orange;
+        }
+        100% {
+          background-position: 400px 0;
+          opacity: 1;
+          border-right: 1px solid orange;
+        }
+      }
+
+      @keyframes type {
+        0% {
+          width: 0;
+        }
+        1%,
+        99% {
+          border-right: 1px solid orange;
+        }
+        100% {
+          border-right: none;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Hellow World</h1>
+    <div class="type-wrap">
+      <h1 id="typed" class="typed">Hellow World</h1>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script>
+    <script>
+      $("#typed").typed({
+        strings: ["Hello World."],
+        typeSpeed: 200,
+        startDelay: 0,
+        // backSpeed: 0,
+        // backDelay: 1000,
+        loop: true,
+        cursorChar: "",
+        contentType: "html"
+      });
+    </script>
   </body>
 </html>
